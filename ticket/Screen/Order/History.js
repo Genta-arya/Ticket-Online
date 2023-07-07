@@ -78,6 +78,7 @@ const History = () => {
       );
       const orderData = response.data;
 
+
       if (orderData.status_code === "201") {
         return "Pembayaran dalam proses";
       } else if (
@@ -85,8 +86,14 @@ const History = () => {
         orderData.transaction_status === "settlement"
       ) {
         return "Pembayaran berhasil";
-      } else {
-        return "Pembayaran tidak berhasil";
+      } else if (
+        orderData.status_code === "407" ||
+        orderData.transaction_status === "expire"
+      ) {
+        return "Pembayaran Tidak Berhasil";
+      }
+      else {
+        return "Sedang memilih pembayaran";
       }
     } catch (error) {
       return "Pembayaran tidak berhasil";

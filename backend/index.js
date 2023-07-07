@@ -342,28 +342,6 @@ app.get("/jadwal", (req, res) => {
   });
 });
 
-// app.post("/pesanan", (req, res) => {
-//   const { jadwalId, email, nama, noTelp ,harga,jam,status} = req.body;
-
-//   if (!jadwalId || !email || !nama || !noTelp) {
-//     console.log("Please fill in all fields");
-//     res.status(400).json({ error: "Please fill in all fields" });
-//     return;
-//   }
-
-//   const insertOrderQuery = "INSERT INTO pesanan (jadwal, email, nama, no_telp , harga,jam , status) VALUES (?, ?, ?, ?,?,?,?)";
-//   const values = [jadwalId, email, nama, noTelp,harga,jam,status];
-
-//   db.query(insertOrderQuery, values, (error, results) => {
-//     if (error) {
-//       console.error("Error placing order:", error);
-//       res.status(500).json({ error: "Error placing order" });
-//     } else {
-//       console.log("Order placed successfully:", results);
-//       res.status(200).json({ message: "Order placed successfully" });
-//     }
-//   });
-// });
 
 app.post("/pesanan", async (req, res) => {
   const { jadwalId, email, nama, noTelp, harga, jam, status } = req.body;
